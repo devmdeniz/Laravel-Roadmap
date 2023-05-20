@@ -16,3 +16,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+/*
+! Similar With:
+Route::view('/','welcome');
+*/
+Route::view('/a','notwelcome');
+
+// Route::get("/a", function () {
+//     return view('notwelcome');
+// });
+Route::get("/profil", function () {return view('welcome');});
+Route::view("/kullanici", 'kullanici');
+// Route::redirect('/kullanici', '/profil');
+
+// Route::prefix('profil')->group(function () {
+//         Route::view('/a','notwelcome');
+//         Route::get('/b', function() {
+//             return view('welcome');
+//         });
+// });
+
+// Route::fallback(function() {
+//     Route::view("/hata", function() {
+//         return "Aradigin sayfa yok";
+//     });
+// }); -> // ! calismasi icin bir prefix sayfasinin icinde olmasi gerekiyor 
+
+    Route::view('/z','notwelcome')->name("zpage");
